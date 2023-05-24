@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Строительный магазин</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/fonts.css}" href="../static/css/fonts.css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" href="../static/css/alerts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Caveat&family=Jost:wght@300;500&family=Oswald:wght@200&family=Raleway:wght@200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class="header-01">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo">
+                <a href="">
+                    <img th:src="@{/icons/logo.png}" src="../static/icons/logo.png" width="118" height="77,5" alt="Goru">
+                </a>
+            </div>
+            <div class="navigation">
+                <nav class="nav">
+                    <li class="navigation-li">
+                        <a class="nav_link" th:href="@{/}" href="index.html">
+                            <span>Главная</span>
+                        </a>
+                    </li>
+                    <li class="navigation-li">
+                        <a class="nav_link" th:href="@{/shop/catalogue}" href="Catalogue.html">
+                            <span>Каталог</span>
+                        </a>
+                    </li>
+                    <li class="navigation-li">
+                        <a class="nav_link" th:href="@{/}" href="index.html">
+                            <span>Новости</span>
+                        </a>
+                    </li>
+                    <li class="navigation-li">
+                        <a class="nav_link" th:href="@{/}" href="index.html">
+                            <span>Контакты</span>
+                        </a>
+                    </li>
+                </nav>
+            </div>
+            <div class="nav_link_more navigation" id="link_more_clock">
+                <a class="link_more">
+                    <img th:src="@{icons/loopa.png}" src="../static/icons/loopa.png" width="22px" height="22px">
+                </a>
+                <a class="link_more">
+                    <img th:src="@{icons/russia-flag.png}" src="../static/icons/russia-flag.png" width="22px" height="22px">
+                    <span class="span_flag">Russia</span>
+                </a>
+                <a class="link_more" th:href="@{/shop/card}" href="card.html">
+                    <img th:src="@{icons/cart.png}" src="assets/images/cart.png">
+                    <div th:text="${counter}" class="b1nnc0ug_header-footer rurgeyv_header-footer p1s695u0_header-footer cart-footer">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="main-title">
+    <div class="main-title-text">
+        Лучший магазин<br>Уникальный каталог
+        <div class="main-title-info">
+            <span>Хотите заказать уникальный товар? Тогда Вы по адресу. Выбирайте любой товар из нашего ассортимента и заказывайте. Доставим в течение недели в любой город.</span>
+        </div>
+        <a th:href="@{shop/add}" href="Add" class="goru-btn">Добавить товар</a>
+    </div>
+    <div class="main-title-img">
+        <img class="main-title-img-photo" th:src="@{icons/materials.jpg}" src="../static/icons/materials.jpg">
+    </div>
+</section>
+<div class="toast">
+    <div class="toast-content">
+        <i class="fas fa-solid fa-check check"></i>
+
+        <div class="message">
+            <span class="text text-1">Ошибка</span>
+            <span class="text text-2">Данный раздел временно недоступен</span>
+        </div>
+    </div>
+    <i class="fa-solid fa-xmark close"></i>
+    <div class="progress"></div>
+</div>
+<footer class="content-footer">2023© All Rights Reserved<br>Sergey Yakovlev</footer>
+</body>
+<script th:src="@{script/alerts.js}" src="../static/script/alerts.js"></script>
+</html>

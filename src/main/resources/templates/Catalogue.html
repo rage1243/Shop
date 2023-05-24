@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Строительный магазин</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/fonts.css}" href="../static/css/fonts.css">
+    <link rel="stylesheet" th:href="@{/css/alerts.css}" href="../static/css/alerts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Caveat&family=Jost:wght@300;500&family=Oswald:wght@200&family=Raleway:wght@200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class="header-01">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../icons/logo.png" width="118" height="77,5" alt="Goru">
+                </a>
+            </div>
+            <div class="navigation-search navigation">
+                <nav class="nav ">
+                    <li class="navigation-li">
+                        <a class="nav_link" href="../">
+                            <span>Главная</span>
+                        </a>
+                    </li>
+                    <li class="navigation-li">
+                        <a class="nav_link" href="../">
+                            <span>Каталог</span>
+                        </a>
+                    </li>
+                    <li class="navigation-li">
+                        <a class="nav_link" href="../">
+                            <span>Новости</span>
+                        </a>
+                    </li>
+                    <li class="navigation-li">
+                        <a class="nav_link" href="../">
+                            <span>Контакты</span>
+                        </a>
+                    </li>
+                </nav>
+            </div>
+            <div class="search_link ">
+                <div class="nav_link_more navigation">
+                    <a class="search-form ">
+                        <form action="/shop/catalogue" method="get">
+                            <input type="text" name="name" placeholder="Поиск" class="search-title-form-main add-title-form-main "><br>
+                        </form>
+                    </a>
+                </div>
+            </div>
+            <div class="nav_link_more navigation " id="link_more_clock">
+                <a class="link_more ">
+                    <img src="../icons/loopa.png " width="22px " height="22px ">
+                </a>
+                <a class="link_more ">
+                    <img src="../icons/russia-flag.png " width="22px " height="22px ">
+                    <span class="span_flag ">Russia</span>
+                </a>
+                <a class="link_more" th:href="@{/shop/card}" href="card.html">
+                    <img src="../icons/cart.png">
+                    <div th:text="${counter}" class="b1nnc0ug_header-footer rurgeyv_header-footer p1s695u0_header-footer cart-footer">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="search-title-section main-title">
+    <div class="search-title-main">
+        <div th:each="el : ${shop}" class="search-title-card">
+            <img class="search-title-card-img" src="'../static/icons/' + ${el.pictureName}" th:src="@{'/icons/' + ${el.pictureName} + '.png'}">
+            <span class="search-title-card-arcticle" th:text="Арт.  + ${el.id}"></span>
+            <div class="search-title-card-name">
+                    <span class="search-title-card-name-text" th:text="${el.name}">
+                    </span>
+            </div>
+            <div class="search-title-card-name-summ">
+                <div class="search-card-other">
+                        <span class="search-title-card-summ" th:text="${el.cost}"></span>
+                        <span class="search-title-card-summ-cash">
+                             ₽/шт.
+                        </span>
+                </div>
+            </div>
+            <form th:action="@{/shop/addCard/{id}(id=${el.id})}" method="post">
+                <div class="search-title-card-button">
+                    <button type="submit" class="goru-btn">Добавить в корзину</button>
+                </div>
+            </form>
+
+        </div>
+</section>
+<div class="toast">
+    <div class="toast-content">
+        <i class="fas fa-solid fa-check check"></i>
+
+        <div class="message">
+            <span class="text text-1">Ошибка</span>
+            <span class="text text-2">Данный раздел временно недоступен</span>
+        </div>
+    </div>
+    <i class="fa-solid fa-xmark close "></i>
+    <div class="progress "></div>
+</div>
+</body>
+<script src="../script/alerts.js"></script>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Строительный магазин</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+  <link rel="stylesheet" th:href="@{/css/fonts.css}" href="../static/css/fonts.css">
+  <link rel="stylesheet" th:href="@{/css/alerts.css}" href="../static/css/alerts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Caveat&family=Jost:wght@300;500&family=Oswald:wght@200&family=Raleway:wght@200&display=swap" rel="stylesheet">
+  <script src="../script/alerts.js"></script>
+</head>
+
+<body>
+<header class="header-01">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="logo">
+        <a href="../">
+          <img src="../icons/logo.png" width="118" height="77,5" alt="Goru">
+        </a>
+      </div>
+      <div class="navigation">
+        <nav class="nav">
+          <li class="navigation-li">
+            <a class="nav_link" href="../">
+              <span>Главная</span>
+            </a>
+          </li>
+          <li class="navigation-li">
+            <a class="nav_link" href="../">
+              <span>Каталог</span>
+            </a>
+          </li>
+          <li class="navigation-li">
+            <a class="nav_link" href="../">
+              <span>Новости</span>
+            </a>
+          </li>
+          <li class="navigation-li">
+            <a class="nav_link" href="../">
+              <span>Контакты</span>
+            </a>
+          </li>
+        </nav>
+      </div>
+      <div class="nav_link_more navigation" id="link_more_clock">
+        <a class="link_more">
+          <img src="../icons/loopa.png" width="22px" height="22px">
+        </a>
+        <a class="link_more">
+          <img src="../icons/russia-flag.png" width="22px" height="22px">
+          <span class="span_flag">Russia</span>
+        </a>
+        <a class="link_more" th:href="@{/shop/card}" href="card.html">
+          <img src="../icons/cart.png">
+          <div th:text="${counter}" class="b1nnc0ug_header-footer rurgeyv_header-footer p1s695u0_header-footer cart-footer">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="add-title main-title">
+  <form action="/shop/add" method="post">
+    <div class="add-title-text main-title-text" action="/shop/add" method="post">
+      Введите имя для товара
+      <div class="add-title-form">
+        <input type="text" name="name" placeholder="" class="add-title-form-main"><br>
+      </div>
+      Введите цену для товара
+      <div class="add-title-form">
+        <input type="text" name="cost" placeholder="" class="add-title-form-main"><br>
+      </div>
+      Введите название фото для товара
+      <div class="add-title-form">
+        <input type="text" name="pictureName" placeholder="" class="add-title-form-main"><br>
+      </div>
+      <button type="submit" id="goru-btn-id" class="goru-btn">Добавить товар</button>
+    </div>
+  </form>
+</section>
+<div class="toast">
+  <div class="toast-content">
+    <i class="fas fa-solid fa-check check"></i>
+
+    <div class="message">
+      <span class="text text-1">Ошибка</span>
+      <span class="text text-2">Данный раздел временно недоступен</span>
+    </div>
+  </div>
+  <i class="fa-solid fa-xmark close"></i>
+  <div class="progress"></div>
+</div>
+<footer class="content-footer">2023© All Rights Reserved<br>Sergey Yakovlev</footer>
+</body>
+</html>
