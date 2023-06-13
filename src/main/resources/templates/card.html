@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Строительный магазин</title>
@@ -11,98 +12,110 @@
 </head>
 
 <body>
-<header class="header-01">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="logo">
-                <a href="../">
-                    <img src="../icons/logo.png" width="118" height="77,5" alt="Goru">
-                </a>
-            </div>
-            <div class="navigation">
-                <nav class="nav">
-                    <li class="navigation-li">
-                        <a class="nav_link" href="../">
-                            <span>Главная</span>
-                        </a>
-                    </li>
-                    <li class="navigation-li">
-                        <a class="nav_link" href="../">
-                            <span>Каталог</span>
-                        </a>
-                    </li>
-                    <li class="navigation-li">
-                        <a class="nav_link" href="../">
-                            <span>Новости</span>
-                        </a>
-                    </li>
-                    <li class="navigation-li">
-                        <a class="nav_link" href="../">
-                            <span>Контакты</span>
-                        </a>
-                    </li>
-                </nav>
-            </div>
-            <div class="nav_link_more navigation" id="link_more_clock">
-                <a class="link_more">
-                    <img src="../icons/loopa.png" width="22px" height="22px">
-                </a>
-                <a class="link_more">
-                    <img src="../icons/russia-flag.png" width="22px" height="22px">
-                    <span class="span_flag">Russia</span>
-                </a>
-                <a class="link_more"  th:href="@{/shop/card}" href="card.html">
-                    <img src="../icons/cart.png">
-                    <div th:text="${counter}" class="b1nnc0ug_header-footer rurgeyv_header-footer p1s695u0_header-footer cart-footer">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</header>
-    <section class="card-header">
-        <div class="card-header-name">
-            Корзина
-        </div>
-        <hr aria-orientation="horizontal" class="card-header-border" />
-        <div th:each="el : ${card}" class="card-header-items">
-            <div class="card-header-group">
-                <div class="card-header-group-one">
-                    <div class="card-header-group-el1">
-                        <img class="card-header-group-image" src="'../icons/' + ${el?.getPictureName()}" th:src="@{'/icons/' + ${el?.getPictureName()} + '.png'}">
-                    </div>
+    <header class="header-01">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo">
+                    <a href="../">
+                        <img src="../icons/logo.png" width="118" height="77,5" alt="Goru">
+                    </a>
                 </div>
-                <div class="card-header-group-one">
-                    <div class="card-header-group-el1">
-                        <span class="card-header-arcticle" th:text="'Артикул ' +  ${el?.getId()}"></span>
-                    </div>
-                    <div>
-                        <span class="card-header-text" th:text="${el?.getName()}"></span>
-                    </div>
-                    <div class="card-header-delete">
-                        <form method="post" th:action="@{/shop/delCard/{id}(id=${card?.lastIndexOf(el)})}" id="methodDeletePost">
-                            <a class="card-header-url-delete" onclick="document.getElementById('methodDeletePost').submit();">
-                                <img class="card-header-mysor" src="../icons/mysorka.png" />
-                                <span class="card-header-del-text">Удалить</span>
+                <div class="navigation">
+                    <nav class="nav">
+                        <li class="navigation-li">
+                            <a class="nav_link" href="../">
+                                <span>Главная</span>
                             </a>
-                        </form>
-                    </div>
+                        </li>
+                        <li class="navigation-li">
+                            <a class="nav_link" href="../">
+                                <span>Каталог</span>
+                            </a>
+                        </li>
+                        <li class="navigation-li">
+                            <a class="nav_link" href="../">
+                                <span>Новости</span>
+                            </a>
+                        </li>
+                        <li class="navigation-li">
+                            <a class="nav_link" href="../">
+                                <span>Контакты</span>
+                            </a>
+                        </li>
+                    </nav>
                 </div>
-                <div class="card-header-group-pay">
-                    <span th:text="${el?.getCost()}"></span>
-                    <span> ₽</span>
+                <div class="nav_link_more navigation" id="link_more_clock">
+                    <a class="link_more">
+                        <img src="../icons/loopa.png" width="22px" height="22px">
+                    </a>
+                    <a class="link_more">
+                        <img src="../icons/russia-flag.png" width="22px" height="22px">
+                        <span class="span_flag">Russia</span>
+                    </a>
+                    <a class="link_more" th:href="@{/shop/card}" href="card.html">
+                        <img src="../icons/cart.png">
+                        <div th:text="${counter}" class="b1nnc0ug_header-footer rurgeyv_header-footer p1s695u0_header-footer cart-footer">
+                        </div>
+                    </a>
                 </div>
+            </div>
+        </div>
+    </header>
+    <section class="card-header">
+        <div th:if="${not card.isEmpty()}">
+            <div class="card-header-name">
+                Корзина
             </div>
             <hr aria-orientation="horizontal" class="card-header-border" />
+            <div th:each="el : ${card}" class="card-header-items">
+                <div class="card-header-group">
+                    <div class="card-header-group-one">
+                        <div class="card-header-group-el1">
+                            <img class="card-header-group-image" src="'../icons/' + ${el?.getPictureName()}" th:src="@{'/icons/' + ${el?.getPictureName()} + '.png'}">
+                        </div>
+                    </div>
+                    <div class="card-header-group-one">
+                        <div class="card-header-group-el1">
+                            <span class="card-header-arcticle" th:text="'Артикул ' +  ${el?.getId()}"></span>
+                        </div>
+                        <div>
+                            <span class="card-header-text" th:text="${el?.getName()}"></span>
+                        </div>
+                        <div class="card-header-delete">
+                            <form method="post" th:action="@{/shop/delCard/{id}(id=${card?.lastIndexOf(el)})}" id="methodDeletePost">
+                                <a class="card-header-url-delete" onclick="document.getElementById('methodDeletePost').submit();">
+                                    <img class="card-header-mysor" src="../icons/mysorka.png" />
+                                    <span class="card-header-del-text">Удалить</span>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-header-group-pay">
+                        <span th:text="${el?.getCost()}"></span>
+                        <span> ₽</span>
+                    </div>
+                </div>
+                <hr aria-orientation="horizontal" class="card-header-border" />
+            </div>
+            <div class="card-header-group-end">
+                <span class="card-header-group-end-text">
+                    Итого к оплате:
+                </span>
+                <span class="card-header-group-end-text" th:text="${allSum} + ' ₽'"></span>
+            </div>
+            <div class="card-header-group-pays">
+                <button type="submit" class="goru-btn-pay goru-btn">Оплатить</button>
+            </div>
         </div>
-        <div class="card-header-group-end">
-            <span class="card-header-group-end-text">
-                Итого к оплате:
+        <div th:if="${card.isEmpty()}" class="card-header-empty">
+            <img class="card-header-empty-warning" src="../icons/warning.png" />
+            <span class="card-header-empty-text">
+                    В корзине пусто
             </span>
-            <span class="card-header-group-end-text" th:text="${allSum} + ' ₽'"></span>
-        </div>
-        <div class="card-header-group-pays">
-            <button type="submit" class="goru-btn-pay goru-btn">Оплатить</button>
+            <span class="card-header-empty-text">
+                Перейдите в каталог, чтобы<br>добавить нужные товары
+            </span>
+            <a th:href="@{catalogue}" href="Catalogue" class="card-header-empty-button goru-btn">Перейти в каталог</a>
         </div>
     </section>
     <div class="toast">

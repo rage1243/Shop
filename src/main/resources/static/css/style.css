@@ -311,6 +311,7 @@ input {
 
 .search-title-card-name {
     display: block;
+    flex: 1;
 }
 
 .search-title-card-price {
@@ -367,8 +368,7 @@ input {
 .card-header {
     position: relative;
     display: block;
-    margin: 10% 10%;
-    margin-bottom: 1em;
+    margin: 10% 10% 1em;
 }
 
 .card-header-name {
@@ -510,4 +510,44 @@ hr {
     position: sticky;
     margin: 0;
     align-self: flex-start;
+}
+
+.card-header-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    text-align: center;
+    margin-top: 25%
+}
+
+.card-header-empty-warning {
+    filter: grayscale(100%);
+    background-image: url("../icons/warning.png");
+    background-size: 100% 100%;
+    height: 50px;
+    min-width: 50px;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.card-header-empty-text {
+    color: #999;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-top: 25px;
+}
+
+.card-header-empty-button {
+    margin: 30px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0px;
+    background-color: #e8e9eb;
 }
